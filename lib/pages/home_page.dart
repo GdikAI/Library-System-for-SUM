@@ -1,7 +1,4 @@
-
-
 import 'package:e_commerce_app/components/bottom_nav_bar.dart';
-import 'package:e_commerce_app/components/custom_appbar.dart';
 import 'package:e_commerce_app/pages/book_page.dart';
 import 'package:e_commerce_app/pages/my_books_page.dart';
 import 'package:e_commerce_app/pages/search_page.dart';
@@ -42,9 +39,17 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return PopScope(
       canPop: _selectedIndex==0,
+      onPopInvokedWithResult:(didPop, result) {
+        if (didPop) return;
+
+        setState(() {
+          _selectedIndex = 0;
+        });
+      },
       
       child: Scaffold(
         bottomNavigationBar: MyBottomNavBar(
+          currentIndex: _selectedIndex,
           onTabChange: (index) => navigateBottomBar(index),
         ),
       

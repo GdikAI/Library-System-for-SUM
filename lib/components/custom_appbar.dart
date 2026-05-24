@@ -13,19 +13,26 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget{
     centerTitle: true,
     title: SizedBox(
       height: 40,
-      child: TextField(
-        decoration: InputDecoration(
-          filled: true,
-          fillColor: const Color.fromARGB(232, 232, 224, 224),
-          hintText: "Поиск",
-          prefixIcon: Icon(
-            Icons.search_rounded,
-            size: 20,),
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(20),
-            borderSide: BorderSide.none,
-          )
-        ),
+      child: Row(
+        children: [
+          Expanded(
+            child: TextField(
+              decoration: InputDecoration(
+                filled: true,
+                fillColor: const Color.fromARGB(232, 232, 224, 224),
+                hintText: "Поиск",
+                prefixIcon: Icon(
+                  Icons.search_rounded,
+                  size: 20,),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(20),
+                  borderSide: BorderSide.none,
+                )
+              ),
+            ),
+          ),
+          IconButton(onPressed: () {}, icon: Icon(Icons.filter_alt_sharp)),
+        ],
       ),
     ),
     );

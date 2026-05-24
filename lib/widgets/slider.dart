@@ -34,7 +34,6 @@ class _MySliderState extends State<MySlider> {
           autoPlayInterval: Duration(seconds: 8),
           autoPlayAnimationDuration: Duration(milliseconds: 1000),
           enlargeCenterPage: true,
-          aspectRatio: 16/9,
           viewportFraction: 1,
 
 

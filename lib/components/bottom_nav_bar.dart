@@ -3,13 +3,20 @@ import 'package:google_nav_bar/google_nav_bar.dart';
 
 class MyBottomNavBar extends StatelessWidget {
   void Function(int)? onTabChange;
-  MyBottomNavBar({super.key, required this.onTabChange});
+  final int currentIndex;
+  MyBottomNavBar({
+  super.key, 
+  required this.onTabChange,
+  required this.currentIndex,
+  });
+
 
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(vertical: 20),
       child: GNav(
+      selectedIndex: currentIndex,
       color: Colors.grey[400],
       activeColor:Colors.grey.shade700,
       tabActiveBorder: Border.all(color: Colors.white),

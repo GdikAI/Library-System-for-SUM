@@ -15,10 +15,11 @@ class _BookPageState extends State<BookPage> {
    return Scaffold(
     appBar: CustomAppBar(),
     body: Column( children: [
-      const MySlider(),
+    //Image Slider
+    const MySlider(),
+    //Stories
 
     ]
-    //Image Slider
     ),
   
    );

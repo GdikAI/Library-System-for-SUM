@@ -16,7 +16,16 @@ class _MyBooksPageState extends State<MyBooksPage> {
         automaticallyImplyLeading: false,
         title: Center(
           child: 
-          Text("Забронированные книги")),),
+          Text("Забронированные книги")),
+          ),
+        body: Column(
+          children: [
+            //Мои забронированные книги
+
+
+            //Хочу прочитать
+          ],
+        ),
     );
   }
 }
