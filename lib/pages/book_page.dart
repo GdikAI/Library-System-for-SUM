@@ -1,5 +1,6 @@
 import 'package:e_commerce_app/components/custom_appbar.dart';
 import 'package:e_commerce_app/widgets/slider.dart';
+import 'package:e_commerce_app/widgets/stories.dart';
 import 'package:flutter/material.dart';
 
 class BookPage extends StatefulWidget {
@@ -18,10 +19,13 @@ class _BookPageState extends State<BookPage> {
     //Image Slider
     const MySlider(),
     //Stories
+    const Stories(),
 
-    ]
+   
+      
+
+    ],
     ),
-  
    );
   }
 }
