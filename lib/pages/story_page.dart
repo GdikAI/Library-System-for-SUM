@@ -6,7 +6,7 @@ import 'package:story_view/widgets/story_view.dart';
 
 class StoryPage extends StatefulWidget {
   final List<StoryModel> stories; //список сторисов
-  final int initialIndex;            //индекс рубрики, на которую нажали
+  final int initialIndex;         //индекс рубрики, на которую нажали
 
   const StoryPage({
     super.key, 
@@ -20,6 +20,7 @@ class StoryPage extends StatefulWidget {
 
 class _StoryPageState extends State<StoryPage> {
   late int currentIndex;
+  int _resetCounter = 0; 
 
   @override
   void initState() {
@@ -28,13 +29,12 @@ class _StoryPageState extends State<StoryPage> {
   }
 
   void _handleStoryComplete() {
+    widget.stories[currentIndex].isWatched = true;
     if (currentIndex < widget.stories.length - 1) {
-      // Если это не последняя рубрика в списке, переключаемся на следующую
       setState(() {
         currentIndex++;
       });
     } else {
-      // Если рубрики закончились, закрываем экран сторис
       Navigator.pop(context);
     }
   }
@@ -43,8 +43,10 @@ class _StoryPageState extends State<StoryPage> {
     if (currentIndex > 0) {
       setState(() {
         currentIndex--;
+        final prevStory = widget.stories[currentIndex];
+        prevStory.currentItemIndex = prevStory.storyItems.length - 1;
+        prevStory.controller = StoryController(); 
       });
-      
     }
   }
 
@@ -52,47 +54,52 @@ class _StoryPageState extends State<StoryPage> {
   Widget build(BuildContext context) {
     final currentStory = widget.stories[currentIndex];
     final screenWidth = MediaQuery.of(context).size.width;
+    
     return Scaffold(
+      backgroundColor: Colors.black,
       body: SafeArea(
-      
         child: Stack(
-            key: UniqueKey(),
-            children: [StoryView(
-            repeat: false,
-            storyItems: currentStory.storyItems,
-            controller: currentStory.controller,
-            onComplete: _handleStoryComplete, 
-            onStoryShow: (storyItem, index) {
-              currentStory.currentItemIndex = index;
-            },
-            
-                
+          children: [
+            Container(
+              // <-- 2. Меняем ключ! Теперь он зависит и от индекса, и от счетчика сброса
+              key: ValueKey('story_${currentIndex}_$_resetCounter'),
+              child: StoryView(
+                repeat: false,
+                storyItems: currentStory.storyItems,
+                controller: currentStory.controller,
+                onComplete: _handleStoryComplete, 
+                onStoryShow: (storyItem, index) {
+                  currentStory.currentItemIndex = index;
+                },
                 onVerticalSwipeComplete: (direction) {
                   if (direction == Direction.down) Navigator.pop(context);
                 },
-                
-          ),
-         Positioned(
+              ),
+            ),
+            Positioned(
               left: 0,
               top: 0,
               bottom: 0,
-              width: screenWidth * 0.20, 
+              width: screenWidth * 0.25, 
               child: GestureDetector(
-                behavior: HitTestBehavior.translucent, // Пропускает тапы сквозь себя
+                behavior: HitTestBehavior.translucent,
                 onTapDown: (_) {
-                  // Если пользователь нажал в левую зону И мы на самом ПЕРВОМ слайде этой рубрики
                   if (currentStory.currentItemIndex == 0) {
-                          
-                    currentIndex == 0
-                        ? currentStory.controller = StoryController() 
-                        : _handleStoryPrevios();                    
-
-                    setState(() {}); 
+                    if (currentIndex == 0) {
+                    
+                      setState(() {
+                        currentStory.controller = StoryController(); 
+                        _resetCounter++; 
+                      });
+                    } else {
+                      _handleStoryPrevios();
+                    }
+                  } else {
+                    currentStory.controller.previous();
                   }
-                 
                 },
               ),
-            ), 
+            ),
             Positioned(
               top: 16,
               right: 16,
@@ -101,10 +108,9 @@ class _StoryPageState extends State<StoryPage> {
                 onPressed: () => Navigator.pop(context),
               ), 
             )
-        ]),
-  
+          ],
         ),
-        
+      ),
     );
   }
 }
