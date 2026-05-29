@@ -6,6 +6,7 @@ class BookTile extends StatelessWidget {
   Book book;
   void Function()? onPressed;
   final bool isFavorite;
+  
   BookTile({
     super.key, 
     required this.book,
@@ -75,12 +76,12 @@ class BookTile extends StatelessWidget {
                 ? Icons.favorite
                 : Icons.favorite_border,
                 color: isFavorite
-                       ?Colors.red
+                       ?Colors.blue
                        :Colors.blue,
                 size: 22,
                 ),
               onPressed: onPressed,
-            ),
+            ),          
           ),
         ],
       ),
