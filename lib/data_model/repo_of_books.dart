@@ -4,7 +4,7 @@ import 'package:e_commerce_app/data_model/book.dart';
 
 class RepoOfBooks extends ChangeNotifier {
   //Список книг
-  List<Book> booksList = [
+  List<Book> newBooksList = [
     Book(
       name: "Смешарики: История большой вселенной",
        autour: "Арсений Попов", 
@@ -47,16 +47,60 @@ class RepoOfBooks extends ChangeNotifier {
         status: "В наличии",
         imagePath: 'lib/img/Хоббит.webp',
         ),
-    
+    ];
+
+    late List<Book> iisRecomindations = [
+
+        // Book(
+        // name: "Чистый код",
+        // autour: "Роберт Мартин",
+        // inStock: true,
+        // lot: 5,
+        // status: "В наличии",
+        // imagePath: 'lib/img/Чистый_код.jpg',
+        // ),
+        
+        newBooksList[2],
+
+        Book(
+        name: "Вычислительные машины и разум",
+         autour: "Алан Тьюринг",
+          inStock: true, 
+          lot: 3, 
+          status: "В наличии", 
+          imagePath: 'lib/img/Вычислительные_машины_и_разум.jpg'
+          ),
+
+           Book(
+           name: "Изучаем Python",
+           autour: "Эрик Мэтиз",
+           inStock: true, 
+           lot: 1, 
+           status: "В наличии", 
+           imagePath: 'lib/img/Изучаем_Python.webp'
+          ),
+
+           Book(
+           name: "C++ для начинающих",
+           autour: "Шилдт Герберт",
+           inStock: true, 
+           lot: 12, 
+           status: "В наличии", 
+           imagePath: 'lib/img/cpp_для_начинающих.webp'
+          ),
 
 
-  ];
+    ];
     //Список избранного
     List<Book> userFavorite = [];
 
-    //Геттер списка книг
-    List<Book> getBookList() {
-      return booksList;
+    //Геттер списка новых книг
+    List<Book> getNewBookList() {
+      return newBooksList;
+    }
+
+    List<Book> getIisRecomendations() {
+      return iisRecomindations;
     }
 
     //Геттер избранного
@@ -78,4 +122,14 @@ class RepoOfBooks extends ChangeNotifier {
     bool isFavorite(Book book) {
       return userFavorite.contains(book);
     }
+
+    void onFavoritePressed(Book book) {
+
+      if (isFavorite(book)) {
+          removeFromFavorite(book);
+                } else {
+                  addBookInFavorite(book);
+                }
+    }
+    
 }

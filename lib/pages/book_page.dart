@@ -54,17 +54,16 @@ class _BookPageState extends State<BookPage> {
             //Подписи + Лента книг
             BookFeed(
               feedTitle: "Новинки", 
-              books: value.getBookList(), 
-              onFavoritePressed: (book) {
-                if (value.isFavorite(book)) {
-                  value.removeFromFavorite(book);
-                } else {
-                  addBookToFavorite(book);
-                }
-                  },
-              isFavorite: value.isFavorite
+              books: value.getNewBookList(), 
+              onFavoritePressed: value.onFavoritePressed,
+              isFavorite: value.isFavorite,
               ),
-            
+            BookFeed(
+              feedTitle: "ИИС рекомендует:", 
+              books: value.getIisRecomendations(), 
+              onFavoritePressed: value.onFavoritePressed,
+              isFavorite: value.isFavorite,
+              ),
           ],
         ),
       ),

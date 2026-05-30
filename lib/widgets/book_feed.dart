@@ -1,14 +1,15 @@
 import 'package:e_commerce_app/components/book_tile.dart';
 import 'package:e_commerce_app/data_model/book.dart';
+import 'package:e_commerce_app/pages/see_all_page.dart';
 import 'package:flutter/material.dart';
 
 class BookFeed extends StatelessWidget {
   final String feedTitle;
   final List<Book> books;
-  Function(Book) onFavoritePressed;
+  final Function(Book) onFavoritePressed;
   final bool Function(Book) isFavorite;
 
-  BookFeed({
+  const BookFeed({
   super.key, 
   required this.feedTitle, 
   required this.books, 
@@ -36,9 +37,9 @@ class BookFeed extends StatelessWidget {
                           ),
                       ),
                       TextButton(
-                        onPressed: () {
-                          
-                        },
+                        onPressed: () => Navigator.push(
+                        context, 
+                        MaterialPageRoute(builder: (context) => SeeAllPage(feedTitle: feedTitle, books: books))),
                         
                         child: Text(
                           "Все",
@@ -59,7 +60,7 @@ class BookFeed extends StatelessWidget {
         
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
-                itemCount: books.length,
+                itemCount: 3,
                 itemBuilder: (context, index) {
                   //Получение книги
                   Book book = books[index];

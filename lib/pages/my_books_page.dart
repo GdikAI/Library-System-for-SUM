@@ -20,7 +20,8 @@ class _MyBooksPageState extends State<MyBooksPage> {
         automaticallyImplyLeading: false,
         title: Center(
           child: 
-          Text("Мои книги")),
+          Text("Мои книги")
+          ),
           ),
           body: Consumer<RepoOfBooks>(builder:(context, value, child) => Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -45,7 +46,11 @@ class _MyBooksPageState extends State<MyBooksPage> {
             
 
               //Вернуть книгу в избранное
-              return BookItem(book: individualBook,);
+              return BookItem(book: individualBook, 
+              onPressed: () {
+                value.removeFromFavorite(individualBook);
+                }, 
+              icon: Icon(Icons.delete),);
 
             } ,))
 

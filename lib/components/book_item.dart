@@ -5,9 +5,13 @@ import 'package:provider/provider.dart';
 
 class BookItem extends StatefulWidget {
   Book book;
+  Icon icon;
+  VoidCallback onPressed;
   BookItem({
   super.key, 
-  required this.book
+  required this.book,
+  required this.onPressed,
+  required this.icon
   });
 
   @override
@@ -15,13 +19,11 @@ class BookItem extends StatefulWidget {
 }
 
 class _BookItemState extends State<BookItem> {
-  //Удалить книжку из избранного
-  void removeItemFromFavorit() {
-    Provider.of<RepoOfBooks>(context, listen: false).removeFromFavorite(widget.book);
-  }
+ 
 
   @override
   Widget build(BuildContext context) {
+    
     return Container(
       decoration: BoxDecoration(
         color: Colors.grey[100],
@@ -34,8 +36,8 @@ class _BookItemState extends State<BookItem> {
         title: Text(widget.book.name),
         subtitle: Text(widget.book.status),
         trailing: IconButton(
-          icon: Icon(Icons.delete),
-          onPressed: removeItemFromFavorit, 
+          icon: widget.icon,
+          onPressed: widget.onPressed, 
           ),
       ),
     );
