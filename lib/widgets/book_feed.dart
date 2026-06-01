@@ -60,7 +60,7 @@ class BookFeed extends StatelessWidget {
         
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
-                itemCount: 3,
+                itemCount: books.length,
                 itemBuilder: (context, index) {
                   //Получение книги
                   Book book = books[index];

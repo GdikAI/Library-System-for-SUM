@@ -38,6 +38,8 @@ dependencies:
   carousel_slider: ^5.1.2
   story_view: ^0.16.6
   provider:  
+  readmore: ^3.0.0
+  
 
 dev_dependencies:
   flutter_test:

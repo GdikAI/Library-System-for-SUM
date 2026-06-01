@@ -45,7 +45,7 @@ class _MyBooksPageState extends State<MyBooksPage> {
               Book individualBook = value.getUserFavorite()[index];
             
 
-              //Вернуть книгу в избранное
+              //Удалить из избранного
               return BookItem(book: individualBook, 
               onPressed: () {
                 value.removeFromFavorite(individualBook);

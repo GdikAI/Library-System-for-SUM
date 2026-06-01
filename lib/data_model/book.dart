@@ -1,10 +1,12 @@
+import 'package:flutter/widgets.dart';
+
 class Book {
   final String name;
   final String autour;
   bool inStock;
   int lot;
   String status;
-  // final String description;
+  final String description;
   final String imagePath;
 
   Book(
@@ -14,7 +16,7 @@ class Book {
     required this.inStock,
     required this.lot,
     required this.status,
-    // required this.description,
+    required this.description,
     required this.imagePath,
     }
     );

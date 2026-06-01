@@ -1,4 +1,3 @@
-import 'package:e_commerce_app/components/book_tile.dart';
 import 'package:e_commerce_app/components/custom_appbar.dart';
 import 'package:e_commerce_app/data_model/book.dart';
 import 'package:e_commerce_app/data_model/repo_of_books.dart';
