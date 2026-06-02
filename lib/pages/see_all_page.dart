@@ -36,6 +36,7 @@ class SeeAllPage extends StatelessWidget {
                       ? Icons.favorite
                       : Icons.favorite_border,
                 ),
+                text: Text(book.lot>0?"В наличии": "Нет в наличии"),
               );
             },
           );

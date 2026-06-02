@@ -6,12 +6,14 @@ import 'package:flutter/material.dart';
 class BookItem extends StatefulWidget {
   Book book;
   Icon icon;
+  Text? text;
   VoidCallback onPressed;
   BookItem({
   super.key, 
   required this.book,
   required this.onPressed,
-  required this.icon
+  required this.icon,
+  this.text
   });
 
   @override
@@ -36,7 +38,7 @@ class _BookItemState extends State<BookItem> {
         child: ListTile(
           leading: Image.asset(widget.book.imagePath),
           title: Text(widget.book.name),
-          subtitle: Text(widget.book.status),
+          subtitle: widget.text,
           trailing: IconButton(
             icon: widget.icon,
             onPressed: widget.onPressed, 

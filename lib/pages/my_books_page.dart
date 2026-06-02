@@ -1,11 +1,16 @@
 import 'package:e_commerce_app/components/book_item.dart';
+import 'package:e_commerce_app/data_model/Item.dart';
 import 'package:e_commerce_app/data_model/book.dart';
 import 'package:e_commerce_app/data_model/repo_of_books.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class MyBooksPage extends StatefulWidget {
-  const MyBooksPage({super.key});
+
+  const MyBooksPage({super.key,});
+
+  
+
 
   @override
   State<MyBooksPage> createState() => _MyBooksPageState();
@@ -50,13 +55,42 @@ class _MyBooksPageState extends State<MyBooksPage> {
               onPressed: () {
                 value.removeFromFavorite(individualBook);
                 }, 
-              icon: Icon(Icons.delete),);
+              icon: Icon(Icons.delete),
+              text: Text(individualBook.lot>0?"В наличии": "Нет в наличии"),
+              );
 
-            } ,))
+            } ,)),
 
 
 
             //Мои забронированные книги
+            Text(
+            "Забронированные книги",
+            textAlign: TextAlign.start,
+            style: TextStyle(
+              fontWeight: FontWeight.bold, 
+              fontSize: 24,
+              
+
+              ),
+            ),
+            Expanded(
+              child: ListView.builder(
+              itemCount: value.getUserBooking().length ,
+              itemBuilder: (context, index) {
+              //Получить забронированные книги
+              Book individualBooking = value.getUserBooking()[index];
+            
+
+              //Удалить из забронированного
+              return BookItem(book: individualBooking, 
+              onPressed: () {
+                value.removeFromBooking(individualBooking);
+                }, 
+              icon: Icon(Icons.delete),);
+
+            } ,))
+
 
 
 

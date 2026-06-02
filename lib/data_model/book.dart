@@ -3,9 +3,10 @@ import 'package:flutter/widgets.dart';
 class Book {
   final String name;
   final String autour;
-  bool inStock;
+  final String fullAuthourName;
   int lot;
-  String status;
+  bool inStock;
+ 
   final String description;
   final String imagePath;
 
@@ -13,9 +14,10 @@ class Book {
    {
     required this.name,
     required this.autour,
-    required this.inStock,
+    required this.fullAuthourName, 
     required this.lot,
-    required this.status,
+    required this.inStock,
+   
     required this.description,
     required this.imagePath,
     }
