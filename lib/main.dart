@@ -1,4 +1,5 @@
 import 'package:e_commerce_app/data_model/repo_of_books.dart';
+import 'package:e_commerce_app/data_model/search_provider.dart';
 import 'package:e_commerce_app/pages/intro_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -13,9 +14,13 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => RepoOfBooks(),
-      builder: (context, child) => const MaterialApp(
+    return MultiProvider(
+      providers: [
+      ChangeNotifierProvider(create: (context) => RepoOfBooks()),
+      ChangeNotifierProvider(create: (context) => SearchProvider()),
+
+      ],
+      child: const MaterialApp(
         debugShowCheckedModeBanner: false,
         home: IntroPage(),
       ) ,

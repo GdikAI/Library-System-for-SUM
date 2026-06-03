@@ -4,8 +4,8 @@ import 'package:e_commerce_app/data_model/book.dart';
 
 class RepoOfBooks extends ChangeNotifier {
   //Список книг
-  List<Book> newBooksList = [
-    Book(
+
+  List<Book> allBooksList = [Book(
       name: "Смешарики: История большой вселенной",
        autour: "Мария Корнилова", 
        inStock: true, 
@@ -23,7 +23,8 @@ class RepoOfBooks extends ChangeNotifier {
 Эта книга — искренняя история о том, как рождалась, росла, находилась на грани краха и снова набирала силу Вселенная Смешариков. Написанная свидетелем событий, сценарным редактором проекта Марией Корниловой, книга рассказывает о том, что долгое время оставалось за кадром:
 - почему на старте никто не верил в успех проекта;
 - какими были бы Совунья, Нюша, Лосяш, Пин и Ежик, сложись все немного иначе;
-- кто такие Духи Ромашковой долины и почему с ними не стоит ссориться.""", fullAuthourName: ''
+- кто такие Духи Ромашковой долины и почему с ними не стоит ссориться.""", 
+      fullAuthourName: ''
        ),
 
    Book(
@@ -32,7 +33,9 @@ class RepoOfBooks extends ChangeNotifier {
        inStock: true, 
        lot: 1, 
  
-       imagePath: 'lib/img/Английский.jpg', description: '', fullAuthourName: ''
+       imagePath: 'lib/img/Английский.jpg', 
+       description: '', 
+       fullAuthourName: ''
         ),
     Book(
         name: "Чистый код",
@@ -53,7 +56,9 @@ class RepoOfBooks extends ChangeNotifier {
         inStock: true,
         lot: 5,
     
-        imagePath: 'lib/img/Мастер_И_Маргарита.webp', description: '', fullAuthourName: '',
+        imagePath: 'lib/img/Мастер_И_Маргарита.webp',
+         description: '', 
+        fullAuthourName: '',
         ),
 
        Book(
@@ -62,15 +67,11 @@ class RepoOfBooks extends ChangeNotifier {
         inStock: true,
         lot: 5,
       
-        imagePath: 'lib/img/Хоббит.webp', description: '', fullAuthourName: '',
+        imagePath: 'lib/img/Хоббит.webp', 
+        description: '', 
+        fullAuthourName: '',
         ),
-    ];
-
-    late List<Book> iisRecomindations = [
-        
-        newBooksList[2],
-
-        Book(
+       Book(
         name: "Вычислительные машины и разум",
          autour: "Алан Тьюринг",
           inStock: true, 
@@ -96,6 +97,29 @@ class RepoOfBooks extends ChangeNotifier {
          
            imagePath: 'lib/img/cpp_для_начинающих.webp', description: '', fullAuthourName: ''
           ),
+        ];
+
+  late List<Book> newBooksList = [
+    allBooksList[0],
+
+    allBooksList[1],
+    
+    allBooksList[2],
+
+    allBooksList[3],
+
+    allBooksList[4],
+    ];
+
+    late List<Book> iisRecomindations = [
+        
+        newBooksList[2],
+
+        allBooksList[5],
+
+        allBooksList[6],
+        
+        allBooksList[7]
 
 
     ];

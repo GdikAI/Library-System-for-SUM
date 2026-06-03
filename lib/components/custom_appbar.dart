@@ -1,6 +1,10 @@
+import 'package:e_commerce_app/data_model/book.dart';
+import 'package:e_commerce_app/data_model/repo_of_books.dart';
+import 'package:e_commerce_app/widgets/search.dart';
 import 'package:flutter/material.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget{
+
   const CustomAppBar({
     super.key,
   });
@@ -16,22 +20,9 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget{
       child: Row(
         children: [
           Expanded(
-            child: TextField(
-              decoration: InputDecoration(
-                filled: true,
-                fillColor: const Color.fromARGB(232, 232, 224, 224),
-                hintText: "Поиск",
-                prefixIcon: Icon(
-                  Icons.search_rounded,
-                  size: 20,),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(20),
-                  borderSide: BorderSide.none,
-                )
-              ),
-            ),
+            child: Search(repo: RepoOfBooks(),),
           ),
-          IconButton(onPressed: () {}, icon: Icon(Icons.filter_alt_sharp)),
+          //IconButton(onPressed: () {}, icon: Icon(Icons.filter_alt_sharp)),
         ],
       ),
     ),
