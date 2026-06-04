@@ -151,7 +151,6 @@ class RepoOfBooks extends ChangeNotifier {
     void addBookInFavorite(Book book) {
         if (!isFavorite(book)) {
         userFavorite.add(book);
-        print(book.hashCode);
         notifyListeners();
         }
     }
