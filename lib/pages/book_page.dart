@@ -54,14 +54,12 @@ class _BookPageState extends State<BookPage> {
             BookFeed(
               feedTitle: "Новинки", 
               books: value.getNewBookList(), 
-              onFavoritePressed: value.onFavoritePressed,
-              isFavorite: value.isFavorite,
+              
               ),
             BookFeed(
               feedTitle: "ИИС рекомендует:", 
               books: value.getIisRecomendations(), 
-              onFavoritePressed: value.onFavoritePressed,
-              isFavorite: value.isFavorite,
+              
               ),
           ],
         ),

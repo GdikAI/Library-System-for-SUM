@@ -1,20 +1,19 @@
 import 'package:e_commerce_app/components/book_tile.dart';
 import 'package:e_commerce_app/data_model/book.dart';
+import 'package:e_commerce_app/data_model/repo_of_books.dart';
 import 'package:e_commerce_app/pages/see_all_page.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class BookFeed extends StatelessWidget {
   final String feedTitle;
   final List<Book> books;
-  final Function(Book) onFavoritePressed;
-  final bool Function(Book) isFavorite;
-
+  
   const BookFeed({
   super.key, 
   required this.feedTitle, 
   required this.books, 
-  required this.onFavoritePressed, 
-  required this.isFavorite,
+  
   }
   );
 
@@ -55,26 +54,33 @@ class BookFeed extends StatelessWidget {
                 ),
         
             //Лента книг
-            SizedBox(
-              height: 300,
-        
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: books.length,
-                itemBuilder: (context, index) {
-                  //Получение книги
-                  Book book = books[index];
-                  return BookTile(
-                    book: book,
-                    onPressed: () {
-                      onFavoritePressed(book);
+            Consumer<RepoOfBooks>(
+              builder: (context, value, child) { 
 
-                    }, 
-                    isFavorite: isFavorite(book),
-                    );
-                },
-              ),
+              return SizedBox(
+                height: 300,
+                      
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: books.length,
+                  itemBuilder: (context, index) {
+                    //Получение книги
+                    Book book = books[index];
+                    return BookTile(
+                      book: book,
+                      onPressed: () {
+                        value.addBookInFavorite(book);
+              
+                      }, 
+                      isFavorite:  value.isFavorite(book),
+                      );
+               },
+                  
+                ),
+              );
+              },
             ),
+  
       ],
     );
   }

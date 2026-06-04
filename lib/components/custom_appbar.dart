@@ -20,7 +20,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget{
       child: Row(
         children: [
           Expanded(
-            child: Search(repo: RepoOfBooks(),),
+            child: Search(),
           ),
           //IconButton(onPressed: () {}, icon: Icon(Icons.filter_alt_sharp)),
         ],

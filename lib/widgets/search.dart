@@ -6,8 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class Search extends StatefulWidget {
-  final RepoOfBooks repo;
-  const Search({super.key, required this.repo});
+ 
+  const Search({super.key});
 
   @override
   State<Search> createState() => _SearchState();
@@ -21,7 +21,9 @@ Provider.of<SearchProvider>(context, listen: false).addToHistory(book);
 
   @override
   Widget build(BuildContext context) {
-    List<String> bookNames = widget.repo.allBooksList.map((book) => book.name).toList();
+
+    final repo = Provider.of<RepoOfBooks>(context, listen: false);
+    List<String> bookNames = repo.allBooksList.map((book) => book.name).toList();
     return Stack(
       children: [
         SearchAnchor.bar(suggestionsBuilder:(context, controller) {
@@ -32,7 +34,7 @@ Provider.of<SearchProvider>(context, listen: false).addToHistory(book);
                 .map((String filteredName) => ListTile(
                   title: Text(filteredName),
                   onTap: () {
-                      Book selectedBook = widget.repo.allBooksList.firstWhere(
+                      Book selectedBook = repo.allBooksList.firstWhere(
                         (book) => book.name == filteredName,
                       );
                       controller.closeView(filteredName);

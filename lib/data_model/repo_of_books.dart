@@ -149,8 +149,11 @@ class RepoOfBooks extends ChangeNotifier {
 
     //Добавить книгу в избранное
     void addBookInFavorite(Book book) {
+        if (!isFavorite(book)) {
         userFavorite.add(book);
+        print(book.hashCode);
         notifyListeners();
+        }
     }
 
     //Добавить книгу в забронированное
