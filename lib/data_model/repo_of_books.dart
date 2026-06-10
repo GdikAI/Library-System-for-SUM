@@ -28,8 +28,8 @@ class RepoOfBooks extends ChangeNotifier {
        ),
 
    Book(
-      name: "Английский",
-       autour: "А.Г. Козлов", 
+      name: "ESP ASSESSMENT: HUMAN RESOURCE MANAGEMENT",
+       autour: "А.Г. Козлов, И.Г. Тучкова, С.В. Фирсова", 
        inStock: true, 
        lot: 1, 
  

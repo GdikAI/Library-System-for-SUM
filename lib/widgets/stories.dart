@@ -34,7 +34,7 @@ final List<StoryModel> _storiesList = [
       id: 2,
      storyItems: [
       StoryItem.pageImage(
-      url: 'https://fsd.multiurok.ru/html/2017/09/30/s_59cffdc653f3b/img35.jpg',
+      url: 'https://sun9-38.userapi.com/s/v1/ig2/bq7_6MzEVVuVeWG_fSGPimxjobJbszM6AAfdnSIdtqSymbi5q0ZMTqNam5_UxlE2m-1PNb64WWer8LSw62nAMsFD.jpg?quality=95&as=32x67,48x101,72x152,108x228,160x337,240x506,360x759,480x1012,540x1138,640x1349,720x1517,864x1821&from=bu&u=foC9aUZkIn9UUBCq5sOvPT7rROaTW5fP303dgFzuh8w&cs=864x0',
       controller: StoryController()
       ),
      ], 
@@ -50,7 +50,7 @@ final List<StoryModel> _storiesList = [
       controller: StoryController()
       )
      ], 
-     img: 'https://vashvuz.ru/wp-content/uploads/2023/05/guu.png',  
+     img: 'https://sun9-32.userapi.com/s/v1/ig2/BVTje35KqDtoGc5DBVmcVJanCCFJy9Z-s_8Fy52f-Qn8Fw-SJNRkyMPYkztg6ue0zJEUxF8w50okcKLZX_-CJgQA.jpg?quality=95&as=32x32,48x48,72x72,103x103&from=bu&cs=103x0',  
       ),
       StoryModel(
         id: 4, 
@@ -66,7 +66,7 @@ final List<StoryModel> _storiesList = [
           StoryItem.text(title: "ЗАВТРА БИБЛИОТЕКА НЕ РАБОТАЕТ:\n САНИТАРНЫЙ ДЕНЬ", backgroundColor: Colors.red),
           StoryItem.text(title: "30.05.2026 Коворкинг будет закрыт на мероприятие", backgroundColor: Colors.yellow),
         ], 
-        img: 'https://avatars.mds.yandex.net/i?id=8f13685e194cb72c385146aca8ac030d5dad130e-16459038-images-thumbs&n=13' 
+        img: 'https://yastatic.net/naydex/yandex-search/1uSm29D49/f3b08aeduKE/A4Vdn3wAOWelu6DDhtgEGVTb-mDgutHkRoQVxD43SOCqhNeUsh2lIECtT8pfIUdZEN1k_ocJSYFVBn3YWbEkzMwU29Q3G_JuLqPqCYyTTtkHG_oktWiUJBoKg' 
         ),
 
 

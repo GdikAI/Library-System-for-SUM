@@ -77,15 +77,17 @@ class BookTile extends StatelessWidget {
 
                           } else {
                             showDialog(context: context, builder: (context) => AlertDialog(
-                          title: Text("Уважаемый читатель!"),
+                          title: Text("Дорогой студент!"),
                           content: Text("""К сожалению, эта книга уже нашла своего читателя.
 Добавьте её в «Избранное», и мы сразу же сообщим вам, как только на склад заглянет новый тираж. Так вы точно её не пропустите!"""),
                           actions: [
-                            TextButton(
-                            onPressed: () {
-                              Navigator.pop(context); // Закрывает диалоговое окно при нажатии
-                            },
-                            child: const Text("ОК"),)
+                            Center(
+                              child: TextButton(
+                              onPressed: () {
+                                Navigator.pop(context); // Закрывает диалоговое окно при нажатии
+                              },
+                              child: const Text("ОК"),),
+                            )
 
                            
                           ],

@@ -20,9 +20,11 @@ class MyApp extends StatelessWidget {
       ChangeNotifierProvider(create: (context) => SearchProvider()),
 
       ],
-      child: const MaterialApp(
+      child: MaterialApp(
         debugShowCheckedModeBanner: false,
         home: IntroPage(),
+        theme: ThemeData(colorScheme: ColorScheme.fromSeed(seedColor: Colors.white)
+        ),
       ) ,
 
     );
